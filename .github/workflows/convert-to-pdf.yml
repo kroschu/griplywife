@@ -1,0 +1,39 @@
+name: Docs to PDF
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'src/site/notes/*.md'
+      - 'src/site/notes/**/*.md'
+
+jobs:
+  convert_via_pandoc:
+    name: Convert via Pandoc
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+      - run: mkdir output
+      - name: Set up Docker
+        run: docker pull fboaventura/dckr-pandoc
+      - name: Generate PDF
+        run: |
+          docker run --rm \
+            -v $(pwd)/src/site:/data \
+            fboaventura/dckr-pandoc sh -c '
+              find /data/notes -name "*.md" -print0 | xargs -0 pandoc --extract-media=. --to=plain --standalone --from=markdown+yaml_metadata_block+raw_html+tex_math_single_backslash -o $(pwd)/output/output.txt
+              pandoc --pdf-engine=xelatex --variable mainfont=DejaVuSans $(pwd)/output/output.txt -o $(pwd)/output/output.pdf'
+      - name: Upload PDF and TXT
+        uses: actions/upload-artifact@master
+        with:
+          name: output
+          path: src/site/output
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: src/site/output
+          token: ${{ secrets.DG_GITHUB_TOKEN }}
+          branch: gh-pages
+          clean: true

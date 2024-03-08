@@ -1,0 +1,23 @@
+<style>
+  .qr-code-container {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+</style>
+<div class="qr-code-container">
+  <div id="qrcode"></div>
+</div>
+<script src="https://cdn.jsdelivr.net/gh/davidshimjs/qrcodejs/qrcode.min.js"></script>
+<script type="text/javascript">
+  var qrcode = new QRCode(document.getElementById("qrcode"), {
+    text: "https://indposhyv.pp.ua/{{ page.url | replace('/', '', true) }}",
+    width: 110,
+    height: 110,
+    colorDark : "#284B63",
+    colorLight : "#FAF8F8",
+    correctLevel : QRCode.CorrectLevel.L
+  });
+</script>
+
