@@ -7,7 +7,11 @@ const tocPlugin = require("eleventy-plugin-nesting-toc");
 const { parse } = require("node-html-parser");
 const htmlMinifier = require("html-minifier");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
+const embedTikTok = require("eleventy-plugin-embed-tiktok");
 
+module.exports = function(eleventyConfig) {
+  eleventyConfig.addPlugin(embedTikTok);
+};
 const { headerToId, namedHeadingsFilter } = require("./src/helpers/utils");
 const {
   userMarkdownSetup,
