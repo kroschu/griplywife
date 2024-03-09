@@ -13,6 +13,11 @@ const {
   userEleventySetup,
 } = require("./src/helpers/userSetup");
 
+const ampPlugin = require('@ampproject/eleventy-plugin-amp');
+module.exports = function (eleventyConfig) {
+  eleventyConfig.addPlugin(ampPlugin);
+};
+
 const Image = require("@11ty/eleventy-img");
 function transformImage(src, cls, alt, sizes, widths = ["500", "700", "auto"]) {
   let options = {
