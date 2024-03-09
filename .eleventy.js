@@ -22,6 +22,12 @@ function transformImage(src, cls, alt, sizes, widths = ["500", "700", "auto"]) {
     urlPath: "/img/optimized",
   };
 
+const embedEverything = require("eleventy-plugin-embed-everything");
+
+module.exports = function(eleventyConfig) {
+  eleventyConfig.addPlugin(embedEverything);
+};
+  
   // generate images, while this is async we don’t wait
   Image(src, options);
   let metadata = Image.statsSync(src, options);
