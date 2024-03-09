@@ -29,12 +29,6 @@ function transformImage(src, cls, alt, sizes, widths = ["500", "700", "auto"]) {
   return metadata;
 }
 
-const embedEverything = require("eleventy-plugin-embed-everything");
-
-module.exports = function(eleventyConfig) {
-  eleventyConfig.addPlugin(embedEverything);
-};
-
 const tagRegex = /(^|\s|\>)(#[^\s!@#$%^&*()=+\.,\[{\]};:'"?><]+)(?!([^<]*>))/g;
 
 module.exports = function (eleventyConfig) {
