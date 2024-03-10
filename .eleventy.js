@@ -47,13 +47,14 @@ module.exports = function (eleventyConfig) {
     const url = new URL(videoURL);
     const videoId = url.pathname.split('/').pop();
     return `
-<blockquote class="tiktok-embed" cite="${videoURL}" data-video-id="${videoId}" style="max-width: 605px;min-width: 325px;">
+<blockquote class="tiktok-embed" cite="${videoURL}" data-video-id="${videoId}">
   <section> </section>
 </blockquote>
 <script async src="https://www.tiktok.com/embed.js"></script>
 `;
   });
-  
+};
+
   eleventyConfig.setLiquidOptions({
     dynamicPartials: true,
   });
