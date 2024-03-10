@@ -23,6 +23,10 @@ function transformImage(src, cls, alt, sizes, widths = ["500", "700", "auto"]) {
     urlPath: "/img/optimized",
   };
 
+module.exports = function(eleventyConfig) {
+  // Copy all files in the JavaScript folder to our output directory.
+  eleventyConfig.addPassthroughCopy("src/javascript");
+  
   // generate images, while this is async we don’t wait
   Image(src, options);
   let metadata = Image.statsSync(src, options);
