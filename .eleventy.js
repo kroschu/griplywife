@@ -7,6 +7,7 @@ const tocPlugin = require("eleventy-plugin-nesting-toc");
 const { parse } = require("node-html-parser");
 const htmlMinifier = require("html-minifier");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
+
 const { headerToId, namedHeadingsFilter } = require("./src/helpers/utils");
 const {
   userMarkdownSetup,
@@ -21,7 +22,7 @@ function transformImage(src, cls, alt, sizes, widths = ["500", "700", "auto"]) {
     outputDir: "./dist/img/optimized",
     urlPath: "/img/optimized",
   };
-  
+
   // generate images, while this is async we don’t wait
   Image(src, options);
   let metadata = Image.statsSync(src, options);
@@ -33,7 +34,6 @@ const tagRegex = /(^|\s|\>)(#[^\s!@#$%^&*()=+\.,\[{\]};:'"?><]+)(?!([^<]*>))/g;
 module.exports = function(eleventyConfig) {
   // Copy all files in the JavaScript folder to our output directory.
   eleventyConfig.addPassthroughCopy("src/javascript");
-
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.setLiquidOptions({
