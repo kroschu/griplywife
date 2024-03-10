@@ -31,10 +31,6 @@ function transformImage(src, cls, alt, sizes, widths = ["500", "700", "auto"]) {
 
 const tagRegex = /(^|\s|\>)(#[^\s!@#$%^&*()=+\.,\[{\]};:'"?><]+)(?!([^<]*>))/g;
 
-module.exports = function(eleventyConfig) {
-  // Copy all files in the JavaScript folder to our output directory.
-  eleventyConfig.addPassthroughCopy("src/javascript");
-
 module.exports = function (eleventyConfig) {
   eleventyConfig.setLiquidOptions({
     dynamicPartials: true,
