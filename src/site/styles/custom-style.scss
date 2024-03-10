@@ -1,14 +1,9 @@
 body {
-iframe.yt-shortcode {
-  height: 50vw;
-  margin: 1rem 0;
-  max-height: 25rem;
-  width: 100%;
-},
-blockquote.tiktok-embed {
-  height: 50vw;
-  margin: 1rem 0;
-  max-height: 25rem;
-  width: 100%;
-}
+  iframe.yt-shortcode,
+  blockquote.tiktok-embed {
+    height: 50vw;
+    margin: 1rem 0;
+    max-height: 25rem;
+    width: 100%;
+  }
 }
