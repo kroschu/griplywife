@@ -42,7 +42,17 @@ module.exports = function (eleventyConfig) {
     }" frameborder="0" allowfullscreen></iframe>
 `;
   });
-    
+
+eleventyConfig.addShortcode("tiktok", (videoURL, caption) => {
+    // Отримуємо ідентифікатор відео
+    const id = videoURL.split("/")[5];
+    return `
+<iframe class="tiktok-shortcode" src="https://www.tiktok.com/embed/${id}" title="TikTok video player${
+      caption ? `: ${caption}` : ""
+    }" frameborder="0" allowfullscreen></iframe>
+`;
+  });
+  
   eleventyConfig.setLiquidOptions({
     dynamicPartials: true,
   });
