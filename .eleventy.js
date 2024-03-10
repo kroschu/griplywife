@@ -53,7 +53,6 @@ module.exports = function (eleventyConfig) {
 <script async src="https://www.tiktok.com/embed.js"></script>
 `;
   });
-};
 
   eleventyConfig.setLiquidOptions({
     dynamicPartials: true,
