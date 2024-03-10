@@ -43,13 +43,14 @@ module.exports = function (eleventyConfig) {
 `;
   });
 
-eleventyConfig.addShortcode("tiktok", (videoURL, caption) => {
-    // Отримуємо ідентифікатор відео
-    const id = videoURL.split("/")[5];
+  eleventyConfig.addShortcode("tiktok", (videoURL) => {
+    const url = new URL(videoURL);
+    const videoId = url.pathname.split('/').pop();
     return `
-<iframe class="tiktok-shortcode" src="https://www.tiktok.com/embed/${id}" title="TikTok video player${
-      caption ? `: ${caption}` : ""
-    }" frameborder="0" allowfullscreen></iframe>
+<blockquote class="tiktok-embed" cite="${videoURL}" data-video-id="${videoId}" style="max-width: 605px;min-width: 325px;">
+  <section> </section>
+</blockquote>
+<script async src="https://www.tiktok.com/embed.js"></script>
 `;
   });
   
