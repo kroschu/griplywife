@@ -1,4 +1,7 @@
 const slugify = require("@sindresorhus/slugify");
+module.exports = function(eleventyConfig) {
+  // Copy all files in the JavaScript folder to our output directory.
+  eleventyConfig.addPassthroughCopy("src/javascript");
 const markdownIt = require("markdown-it");
 const fs = require("fs");
 const matter = require("gray-matter");
