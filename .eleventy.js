@@ -34,6 +34,7 @@ module.exports = function(eleventyConfig) {
   // Copy all files in the JavaScript folder to our output directory.
   eleventyConfig.addPassthroughCopy("src/javascript");
 
+
 module.exports = function (eleventyConfig) {
   eleventyConfig.setLiquidOptions({
     dynamicPartials: true,
