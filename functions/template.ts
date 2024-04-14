@@ -54,6 +54,20 @@ export function getTemplate({
           </form>
         </article>
       </main>
+         <script> 
+    window.intergramId = "6412868393";
+    window.intergramCustomizations = {
+        mainColor: "#474747",
+        titleClosed: 'Я Вас зацікавив?',
+        titleOpen: 'Надішліть мені повідомлення звідси',
+        introMessage: 'Це спосіб блискавично швидко зв’язатися зі мною. Напишіть повідомлення внизу і натисніть Enter. Відповім якомога швидше.',
+        autoResponse: 'Я вже отримав повідомлення. Де б я не був. Читаю його...',
+        autoNoResponse: 'Секунду, заждіть ... ' + 'Ще трооошечки ...',
+        alwaysUseFloatingButton: false // Use the mobile floating button also on large screens
+    };
+    window.intergramServer = "https://intergram.rmrf.pp.ua"
+</script>
+<script id="intergram" type="text/javascript" src="https://intergram.rmrf.pp.ua/js/widget.js"></script>
     </body>
 
   </html>
