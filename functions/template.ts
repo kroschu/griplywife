@@ -43,14 +43,14 @@ export function getTemplate({
       <main>
         <article>
           <hgroup>
-            <h1>Password</h1>
-            <h2>Please enter your password for this site.</h2>
+            <h1>Confidentiel, mot de passe requis!</h1>
+            <h2>En vous connectant au système, vous acceptez automatiquement de garder les informations reçues confidentielles pour une durée indéterminée. Ces informations ne peuvent être transmises à des tiers qu'avec l'accord du propriétaire. Le mot de passe est modifié régulièrement, et vous pouvez utiliser le chat dans le coin inférieur droit de la page pour en obtenir un nouveau.</h2>
           </hgroup>
-          ${withError ? `<p class="error">Incorrect password, please try again.</p>` : ''}
+          ${withError ? `<p class="error">Le mot de passe est incorrect. Veuillez le saisir à nouveau ou utiliser le chat au bas de la page.</p>` : ''}
           <form method="post" action="/cfp_login">
             <input type="hidden" name="redirect" value="${redirectPath}" />
             <input type="password" name="password" placeholder="Password" aria-label="Password" autocomplete="current-password" required autofocus>
-            <button type="submit" class="contrast">Login</button>
+            <button type="submit" class="contrast">Connexion</button>
           </form>
         </article>
       </main>
